@@ -12,9 +12,9 @@ idea_choices = (
 class Ideas(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    status = models.CharField(choices=idea_choices, default='pending')
+    status = models.CharField(choices=idea_choices, default='pending', max_length=255)
 
 
 class Vote(models.Model):
-    idea = models.ForeignKey(Ideas, on_delete=models.CASCADE())
+    idea = models.ForeignKey(Ideas, on_delete=models.CASCADE)
     reason = models.TextField()
