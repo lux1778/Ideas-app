@@ -14,7 +14,13 @@ class Ideas(models.Model):
     description = models.TextField(null=True, blank=True)
     status = models.CharField(choices=idea_choices, default='pending', max_length=255)
 
+    def __str__(self):
+        return self.title
+
 
 class Vote(models.Model):
     idea = models.ForeignKey(Ideas, on_delete=models.CASCADE)
     reason = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return self.reason
